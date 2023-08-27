@@ -1,0 +1,7 @@
+requests
+joblib
+pandas
+kafka-python
+minio
+python-dotenv
+scikit-learn==1.2.2

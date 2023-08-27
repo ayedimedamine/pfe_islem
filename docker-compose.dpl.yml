@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  deeplearning:
+    build: ./predictionModule
+    container_name: predictionModule
+    env_file:
+      - ./predictionModule/.env
+    volumes:
+      - ./predictionModule:/usr/app
+
+networks:
+  default:
+    name: kafka-network
+    external: true

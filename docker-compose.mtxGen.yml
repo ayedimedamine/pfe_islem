@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  metricsgenerator:
+    build: ./MetricsGenerator
+    container_name: MetricsGenerator
+    env_file:
+      - ./MetricsGenerator/.env
+    volumes:
+      - ./MetricsGenerator:/usr/app
+
+networks:
+  default:
+    name: kafka-network
+    external: true

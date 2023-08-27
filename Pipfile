@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+joblib = "*"
+pandas = "*"
+flask = "*"
+kafka-python = "*"
+requests = "*"
+radon = "*"
+javalang = "*"
+minio = "*"
+python-dotenv = "*"
+fastapi = "*"
+redis = "*"
+aioredis = "*"
+fastapi-plugins = "*"
+s3fs = "*"
+aiokafka = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
