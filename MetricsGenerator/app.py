@@ -39,9 +39,9 @@ if __name__ == '__main__':
                 if metrics_attribute is None : 
                     continue
                 else : 
-                    producer.send(PREDECTION_TOPIC, value=metrics_attribute)
+                    producer.send(PREDECTION_TOPIC, value=metrics_attribute | {"project_name":project_name, "filename":filename_csv})
                 logger.warning(f"---METRICS RESULTS-- > {metrics_attribute} , {filename_csv}")
 
         except ValueError as e:
-            logger.warning("DISCARD FILE {}".format(file_path))
+            logger.warning("DISCARD FILE {} , {}".format(file_path, e))
             continue

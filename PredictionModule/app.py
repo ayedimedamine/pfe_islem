@@ -27,10 +27,12 @@ if __name__ == '__main__':
 
     for message in consumer:
         metrics_payload: dict = message.value
+        project_name = metrics_payload.pop('project_name', "Unknown_project")
+        filename = metrics_payload.pop('filename', "Unknown_filename")
         input_data = prepare_data(metrics_payload)
         predection = predict(input_data, model)
         predection, percentage = manage_predection(predection)
-        output_payload = metrics_payload | {"CLASS": predection, "percentage": int(percentage)}
-
+        output_payload = metrics_payload | {"CLASS": predection, "percentage": int(percentage), "project_name" : project_name, "filename": filename}
         producer.send(PREDECTION_RESULTS_TOPIC, value=output_payload)
+
         logger.warning(f"---DEEP-learning-- >  {PREDECTION_RESULTS_TOPIC}, {output_payload}")

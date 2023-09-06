@@ -19,6 +19,10 @@ aioredis = "*"
 fastapi-plugins = "*"
 s3fs = "*"
 aiokafka = "*"
+python-socketio = "*"
+uvicorn = "*"
+websockets = "*"
+pymongo = "*"
 
 [dev-packages]
 
